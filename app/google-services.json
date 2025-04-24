@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "9511837092",
+    "project_id": "hostel-dccbf",
+    "storage_bucket": "hostel-dccbf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9511837092:android:ea9fbbf74af530fb0d7531",
+        "android_client_info": {
+          "package_name": "com.aiyu.hostel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9511837092-nshmusq4nar3ekce4e2g5f73dgqlntiv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ83bKq8rD9SUfmS1fvoOcTotkHo1otaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9511837092-nshmusq4nar3ekce4e2g5f73dgqlntiv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
