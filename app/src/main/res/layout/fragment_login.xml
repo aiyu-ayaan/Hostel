@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_base"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="@dimen/grid_2"
+        app:layout_constraintBottom_toTopOf="@id/linear_layout_login"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linear_layout_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/grid_1"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/grid_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            style="?attr/textAppearanceHeadline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/grid_1"
+            android:text="@string/welcome_to_app" />
+
+        <TextView
+            style="?attr/textAppearanceBody2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/grid_1"
+            android:paddingHorizontal="@dimen/grid_1"
+            android:text="@string/login_to_proceed" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/log_in_google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/grid_2"
+            app:cornerRadius="@dimen/grid_1" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

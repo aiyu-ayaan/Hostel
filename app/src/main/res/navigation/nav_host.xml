@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/logInFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.aiyu.hostel.ui.fragments.home.HomeFragment"
-        tools:layout="@layout/fragment_home"
-        android:label="@string/home" >
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
@@ -17,25 +17,36 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.aiyu.hostel.ui.fragments.profile.ProfileFragment"
-        tools:layout="@layout/fragment_profile"
-        android:label="@string/profile" />
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/ticketFragment"
         android:name="com.aiyu.hostel.ui.fragments.ticket.TicketFragment"
-        tools:layout="@layout/fragment_ticket"
-        android:label="@string/ticket" />
+        android:label="@string/ticket"
+        tools:layout="@layout/fragment_ticket" />
     <fragment
         android:id="@+id/foodFragment"
         android:name="com.aiyu.hostel.ui.fragments.food.FoodFragment"
-        tools:layout="@layout/fragment_food"
-        android:label="@string/food" />
+        android:label="@string/food"
+        tools:layout="@layout/fragment_food" />
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.aiyu.hostel.ui.fragments.details.DetailFragment"
-        tools:layout="@layout/fragment_detail"
-        android:label="DetailFragment" >
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail">
         <argument
             android:name="hostel"
             app:argType="com.aiyu.hostel.core.data.Hostel" />
+    </fragment>
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.aiyu.hostel.ui.fragments.login.LogInFragment"
+        android:label="LogInFragment"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_logInFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_host"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

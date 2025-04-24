@@ -1,6 +1,7 @@
 package com.aiyu.hostel.ui.main;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +41,17 @@ public class MainActivity extends AppCompatActivity {
         } else {
             throw new IllegalStateException("NavHostFragment not found");
         }
+
+        navController.addOnDestinationChangedListener((navController, navDestination, bundle) -> {
+            if (navDestination.getId() == R.id.homeFragment ||
+                    navDestination.getId() == R.id.ticketFragment
+                    || navDestination.getId() == R.id.foodFragment
+                    || navDestination.getId() == R.id.profileFragment) {
+                binding.bottomNavigationView.setVisibility(View.VISIBLE);
+            } else {
+                binding.bottomNavigationView.setVisibility(View.GONE);
+            }
+        });
 
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController);
     }

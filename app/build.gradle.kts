@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs")
-//    alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.googleAndroidLibrariesMapsplatformSecretsGradlePlugin)
 }
 
@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.aiyu.hostel"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -57,11 +57,11 @@ dependencies {
     implementation(libs.play.services.auth)
     annotationProcessor(libs.hilt.android.compiler)
 
-//    implementation(libs.firebase.auth)
-//    implementation(libs.credentials)
-//    implementation(libs.credentials.play.services.auth)
-//    implementation(libs.googleid)
-//    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.auth)
+    implementation(libs.credentials)
+    implementation(libs.credentials.play.services.auth)
+    implementation(libs.googleid)
+    implementation(libs.firebase.firestore)
 
     implementation(libs.glide)
 

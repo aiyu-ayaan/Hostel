@@ -23,4 +23,6 @@
     <string name="profile">Profile</string>
     <string name="ticket">Ticket</string>
     <string name="full">Full</string>
+    <string name="welcome_to_app">Welcome to Hostel App</string>
+    <string name="login_to_proceed">Login to proceed</string>
 </resources>

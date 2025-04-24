@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.aiyu.hostel" />
+                  <option name="mobileSdkAppId" value="1:9511837092:android:ea9fbbf74af530fb0d7531" />
+                  <option name="projectId" value="hostel-dccbf" />
+                  <option name="projectNumber" value="9511837092" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
