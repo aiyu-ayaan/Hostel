@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Hostel</string>
+    <string name="available">Available</string>
+    <string name="wifi">WIFI</string>
+    <string name="ac">AC</string>
+    <string name="food">FOOD</string>
+    <string name="laundry">Laundry</string>
+    <string name="view_details">View Details</string>
+    <string name="price">Price</string>
+    <string name="amenities">Amenities</string>
+    <string name="gym">Gym</string>
+    <string name="study_room">Study Room</string>
+    <string name="parking">Parking</string>
+    <string name="description">Description</string>
+    <string name="room_options">Room Options</string>
+    <string name="location">Location</string>
+    <string name="policies">Policies</string>
+    <string name="available_beds_message">Available beds</string>
+    <string name="contact_hostel">Contact Hostel</string>
+    <string name="book_now">Book now</string>
+    <string name="select">Select</string>
+</resources>
