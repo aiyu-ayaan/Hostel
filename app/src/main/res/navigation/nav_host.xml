@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.aiyu.hostel.ui.fragments.home.HomeFragment"
+        tools:layout="@layout/fragment_home"
+        android:label="@string/home" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.aiyu.hostel.ui.fragments.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile"
+        android:label="@string/profile" />
+    <fragment
+        android:id="@+id/ticketFragment"
+        android:name="com.aiyu.hostel.ui.fragments.ticket.TicketFragment"
+        tools:layout="@layout/fragment_ticket"
+        android:label="@string/ticket" />
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="com.aiyu.hostel.ui.fragments.food.FoodFragment"
+        tools:layout="@layout/fragment_food"
+        android:label="@string/food" />
+</navigation>

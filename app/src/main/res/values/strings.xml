@@ -19,4 +19,7 @@
     <string name="contact_hostel">Contact Hostel</string>
     <string name="book_now">Book now</string>
     <string name="select">Select</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="ticket">Ticket</string>
 </resources>
