@@ -10,6 +10,9 @@ import com.aiyu.hostel.R;
 import com.aiyu.hostel.databinding.FragmentDetailBinding;
 import com.aiyu.hostel.utils.BaseFragment;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class DetailFragment extends BaseFragment {
     public DetailFragment() {
         super(R.layout.fragment_detail);

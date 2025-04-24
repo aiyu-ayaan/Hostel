@@ -8,18 +8,22 @@ import androidx.annotation.Nullable;
 
 import com.aiyu.hostel.R;
 import com.aiyu.hostel.databinding.FragmentDetailBinding;
+import com.aiyu.hostel.databinding.FragmentFoodBinding;
 import com.aiyu.hostel.utils.BaseFragment;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class FoodFragment extends BaseFragment {
     public FoodFragment() {
         super(R.layout.fragment_food);
     }
 
-    private FragmentDetailBinding binding;
+    private FragmentFoodBinding binding;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding = FragmentDetailBinding.bind(view);
+        binding = FragmentFoodBinding.bind(view);
     }
 }
