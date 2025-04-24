@@ -27,4 +27,8 @@
     <string name="login_to_proceed">Login to proceed</string>
     <string name="logout">Logout</string>
     <string name="loading">Loading</string>
+    <string name="buy">Buy</string>
+    <string name="preparation_time">Preparation Time</string>
+    <string name="rating">Rating</string>
+    <string name="ingredients">Ingredients</string>
 </resources>
