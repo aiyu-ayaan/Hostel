@@ -25,4 +25,6 @@
     <string name="full">Full</string>
     <string name="welcome_to_app">Welcome to Hostel App</string>
     <string name="login_to_proceed">Login to proceed</string>
+    <string name="logout">Logout</string>
+    <string name="loading">Loading</string>
 </resources>
