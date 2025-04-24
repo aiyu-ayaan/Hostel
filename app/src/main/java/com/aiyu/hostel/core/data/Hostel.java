@@ -1,11 +1,12 @@
 package com.aiyu.hostel.core.data;
 
-import java.util.List;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-public class Hostel {
+public class Hostel implements Serializable {
     private String id;
     private String name;
     private String location;
@@ -185,7 +186,7 @@ public class Hostel {
     }
 
     // Room Option inner class to represent the different room types
-    public static class RoomOption {
+    public static class RoomOption implements Serializable {
         private String type;
         private String price;
         private String description;

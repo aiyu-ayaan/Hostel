@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.aiyu.hostel.ui.fragments.home.HomeFragment"
         tools:layout="@layout/fragment_home"
-        android:label="@string/home" />
+        android:label="@string/home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.aiyu.hostel.ui.fragments.profile.ProfileFragment"
@@ -25,4 +29,13 @@
         android:name="com.aiyu.hostel.ui.fragments.food.FoodFragment"
         tools:layout="@layout/fragment_food"
         android:label="@string/food" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.aiyu.hostel.ui.fragments.details.DetailFragment"
+        tools:layout="@layout/fragment_detail"
+        android:label="DetailFragment" >
+        <argument
+            android:name="hostel"
+            app:argType="com.aiyu.hostel.core.data.Hostel" />
+    </fragment>
 </navigation>
