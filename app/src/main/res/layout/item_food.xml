@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -64,6 +65,7 @@
             android:id="@+id/tv_preparation_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_marginStart="12dp"
             android:drawableStart="@drawable/ic_time"
             android:drawablePadding="4dp"
@@ -83,28 +85,15 @@
             app:layout_constraintStart_toStartOf="@id/iv_food_image"
             app:layout_constraintTop_toBottomOf="@id/iv_food_image" />
 
-        <TextView
-            android:id="@+id/tv_dietary_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/baseline_badge_24"
-            android:padding="4dp"
-            android:textColor="@color/black"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="@id/rb_food_rating"
-            app:layout_constraintStart_toEndOf="@id/rb_food_rating"
-            app:layout_constraintTop_toTopOf="@id/rb_food_rating" />
 
         <Button
             android:id="@+id/btn_add_to_buy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="@string/buy"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rb_food_rating" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_preparation_time" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

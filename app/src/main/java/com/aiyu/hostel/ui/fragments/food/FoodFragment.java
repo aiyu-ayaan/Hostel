@@ -5,9 +5,11 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.aiyu.hostel.R;
+import com.aiyu.hostel.core.data.FoodItem;
 import com.aiyu.hostel.databinding.FragmentDetailBinding;
 import com.aiyu.hostel.databinding.FragmentFoodBinding;
 import com.aiyu.hostel.utils.BaseFragment;
@@ -31,6 +33,10 @@ public class FoodFragment extends BaseFragment {
         binding.rvFood.setAdapter(adapter);
         binding.rvFood.setLayoutManager(new LinearLayoutManager(requireContext()));
         adapter.submitList(DataGenerator.getFoodItems());
-
+        adapter.setOnFoodItemClickListener(foodItem -> {
+            var action = FoodFragmentDirections.actionFoodFragmentToFoodDetailsFragment(foodItem);
+            Navigation.findNavController(binding.getRoot())
+                    .navigate(action);
+        });
     }
 }

@@ -10,6 +10,7 @@ import androidx.navigation.Navigation;
 import com.aiyu.hostel.R;
 import com.aiyu.hostel.databinding.FragmentFoodDetailsBinding;
 import com.aiyu.hostel.utils.BaseFragment;
+import com.bumptech.glide.Glide;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -32,12 +33,18 @@ public class FoodDetailsFragment extends BaseFragment {
         binding.toolbar.setNavigationOnClickListener(v -> {
             Navigation.findNavController(binding.getRoot()).navigateUp();
         });
+//        enable back button on toolbar
+//        binding.toolbar.setNavigationIcon(android.R.drawable.ic_menu_close_clear_cancel);
         binding.tvFoodDetailName.setText(food.getName());
         binding.tvFoodDetailDescription.setText(food.getDescription());
         binding.tvFoodDetailPrice.setText(String.valueOf(food.getPrice()));
-        binding.tvDetailPreparationTime.setText(food.getPreparationTimeMinutes());
+        binding.tvDetailPreparationTime.setText(food.getPreparationTimeMinutes() + " min");
         binding.rbDetailFoodRating.setRating(food.getRating());
         binding.tvRatingCount.setText(String.valueOf(food.getRatingCount()));
+        Glide.with(binding.getRoot())
+                .load(food.getImageUrl())
+                .error(R.drawable.ic_food_base)
+                .into(binding.ivFoodDetailImage);
         binding.btOrder.setOnClickListener(v -> {
 
         });
