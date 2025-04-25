@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aiyu.hostel.R;
+import com.aiyu.hostel.core.data.Amenity;
 import com.aiyu.hostel.core.data.Hostel;
 import com.aiyu.hostel.databinding.ItemHostelBinding;
 import com.bumptech.glide.Glide;
@@ -104,10 +105,10 @@ public class HomeAdapter extends ListAdapter<Hostel, HomeAdapter.HostelViewHolde
             }
 
             // Setup amenities visibility
-            binding.tvWifi.setVisibility(hostel.hasAmenity(Hostel.Amenity.WIFI) ? View.VISIBLE : View.GONE);
-            binding.tvAc.setVisibility(hostel.hasAmenity(Hostel.Amenity.AC) ? View.VISIBLE : View.GONE);
-            binding.tvFood.setVisibility(hostel.hasAmenity(Hostel.Amenity.FOOD) ? View.VISIBLE : View.GONE);
-            binding.tvLaundry.setVisibility(hostel.hasAmenity(Hostel.Amenity.LAUNDRY) ? View.VISIBLE : View.GONE);
+            binding.tvWifi.setVisibility(hostel.hasAmenity(Amenity.WIFI) ? View.VISIBLE : View.GONE);
+            binding.tvAc.setVisibility(hostel.hasAmenity(Amenity.AC) ? View.VISIBLE : View.GONE);
+            binding.tvFood.setVisibility(hostel.hasAmenity(Amenity.FOOD) ? View.VISIBLE : View.GONE);
+            binding.tvLaundry.setVisibility(hostel.hasAmenity(Amenity.LAUNDRY) ? View.VISIBLE : View.GONE);
 
             // Set click listeners
             binding.getRoot().setOnClickListener(v -> {

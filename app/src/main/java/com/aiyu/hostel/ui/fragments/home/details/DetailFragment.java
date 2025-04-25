@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.aiyu.hostel.R;
+import com.aiyu.hostel.core.data.Amenity;
 import com.aiyu.hostel.core.data.Hostel;
 import com.aiyu.hostel.databinding.FragmentDetailBinding;
 import com.aiyu.hostel.utils.BaseFragment;
@@ -98,13 +99,13 @@ public class DetailFragment extends BaseFragment {
     }
 
     private void setupAmenities(Hostel hostel) {
-        binding.chipWifi.setVisibility(hostel.hasAmenity(Hostel.Amenity.WIFI) ? View.VISIBLE : View.GONE);
-        binding.chipAc.setVisibility(hostel.hasAmenity(Hostel.Amenity.AC) ? View.VISIBLE : View.GONE);
-        binding.chipFood.setVisibility(hostel.hasAmenity(Hostel.Amenity.FOOD) ? View.VISIBLE : View.GONE);
-        binding.chipLaundry.setVisibility(hostel.hasAmenity(Hostel.Amenity.LAUNDRY) ? View.VISIBLE : View.GONE);
-        binding.chipGym.setVisibility(hostel.hasAmenity(Hostel.Amenity.GYM) ? View.VISIBLE : View.GONE);
-        binding.chipStudyRoom.setVisibility(hostel.hasAmenity(Hostel.Amenity.STUDY_ROOM) ? View.VISIBLE : View.GONE);
-        binding.chipParking.setVisibility(hostel.hasAmenity(Hostel.Amenity.PARKING) ? View.VISIBLE : View.GONE);
+        binding.chipWifi.setVisibility(hostel.hasAmenity(Amenity.WIFI) ? View.VISIBLE : View.GONE);
+        binding.chipAc.setVisibility(hostel.hasAmenity(Amenity.AC) ? View.VISIBLE : View.GONE);
+        binding.chipFood.setVisibility(hostel.hasAmenity(Amenity.FOOD) ? View.VISIBLE : View.GONE);
+        binding.chipLaundry.setVisibility(hostel.hasAmenity(Amenity.LAUNDRY) ? View.VISIBLE : View.GONE);
+        binding.chipGym.setVisibility(hostel.hasAmenity(Amenity.GYM) ? View.VISIBLE : View.GONE);
+        binding.chipStudyRoom.setVisibility(hostel.hasAmenity(Amenity.STUDY_ROOM) ? View.VISIBLE : View.GONE);
+        binding.chipParking.setVisibility(hostel.hasAmenity(Amenity.PARKING) ? View.VISIBLE : View.GONE);
     }
 
     private void showRoomSelectedMessage(Hostel.RoomOption roomOption) {

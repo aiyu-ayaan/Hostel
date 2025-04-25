@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.navigation.Navigation;
 
 import com.aiyu.hostel.R;
+import com.aiyu.hostel.core.data.Priority;
 import com.aiyu.hostel.core.data.Ticket;
 import com.aiyu.hostel.databinding.FragmentAddTicketBinding;
 import com.aiyu.hostel.utils.BaseFragment;
@@ -90,14 +91,14 @@ public class AddTicketFragment extends BaseFragment {
         String category = binding.dropdownCategory.getText().toString();
 
         // Get priority
-        Ticket.Priority priority;
+        Priority priority;
         int priorityId = binding.rgPriority.getCheckedRadioButtonId();
         if (priorityId == binding.rbPriorityLow.getId()) {
-            priority = Ticket.Priority.LOW;
+            priority = Priority.LOW;
         } else if (priorityId == binding.rbPriorityHigh.getId()) {
-            priority = Ticket.Priority.HIGH;
+            priority = Priority.HIGH;
         } else {
-            priority = Ticket.Priority.MEDIUM;
+            priority = Priority.MEDIUM;
         }
 
         // Create and submit ticket
@@ -105,7 +106,7 @@ public class AddTicketFragment extends BaseFragment {
     }
 
     private void submitTicket(String title, String description, String category,
-                              Ticket.Priority priority, String roomNumber) {
+                              Priority priority, String roomNumber) {
         // Show loading state
         binding.btnSubmitTicket.setEnabled(false);
         binding.btnSubmitTicket.setText("Submitting...");

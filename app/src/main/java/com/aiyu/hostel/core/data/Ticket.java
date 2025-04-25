@@ -8,18 +8,9 @@ public class Ticket implements Serializable {
     // Constants for ticket priority
 
     // Constants for ticket status
-    public enum Priority {
-        LOW,
-        MEDIUM,
-        HIGH
-    }
 
-    public enum Status {
-        PENDING,
-        IN_PROGRESS,
-        RESOLVED,
-        CLOSED
-    }
+
+
 
     private String id;
     private String title;

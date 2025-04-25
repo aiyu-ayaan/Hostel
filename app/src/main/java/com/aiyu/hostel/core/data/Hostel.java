@@ -1,8 +1,9 @@
 package com.aiyu.hostel.core.data;
 
+import android.os.Build;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -14,7 +15,7 @@ public class Hostel implements Serializable {
     private int reviewCount;
     private String pricePerMonth;
     private List<String> imageUrls;
-    private Set<Amenity> amenities;
+    private List<Amenity> amenities;
     private String description;
     private List<String> policies;
     private List<RoomOption> roomOptions;
@@ -22,30 +23,12 @@ public class Hostel implements Serializable {
     private String contactInfo;
 
     // Enum for Amenities
-    public enum Amenity {
-        WIFI("WiFi"),
-        AC("AC"),
-        FOOD("Food"),
-        LAUNDRY("Laundry"),
-        GYM("Gym"),
-        STUDY_ROOM("Study Room"),
-        PARKING("Parking");
 
-        private final String displayName;
-
-        Amenity(String displayName) {
-            this.displayName = displayName;
-        }
-
-        public String getDisplayName() {
-            return displayName;
-        }
-    }
 
     // Default constructor
     public Hostel() {
         this.imageUrls = new ArrayList<>();
-        this.amenities = new HashSet<>();
+        this.amenities = new ArrayList<>();
         this.policies = new ArrayList<>();
         this.roomOptions = new ArrayList<>();
     }
@@ -62,7 +45,11 @@ public class Hostel implements Serializable {
         this.reviewCount = reviewCount;
         this.pricePerMonth = pricePerMonth;
         this.imageUrls = imageUrls != null ? imageUrls : new ArrayList<>();
-        this.amenities = amenities != null ? amenities : new HashSet<>();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            this.amenities = amenities != null ? amenities.stream().toList() : new ArrayList<>();
+        } else {
+            this.amenities = amenities != null ? new ArrayList<>(amenities) : new ArrayList<>();
+        }
         this.description = description;
         this.policies = policies != null ? policies : new ArrayList<>();
         this.roomOptions = roomOptions != null ? roomOptions : new ArrayList<>();
@@ -127,12 +114,16 @@ public class Hostel implements Serializable {
         this.imageUrls = imageUrls != null ? imageUrls : new ArrayList<>();
     }
 
-    public Set<Amenity> getAmenities() {
+    public List<Amenity> getAmenities() {
         return amenities;
     }
 
     public void setAmenities(Set<Amenity> amenities) {
-        this.amenities = amenities != null ? amenities : new HashSet<>();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            this.amenities = amenities != null ? amenities.stream().toList() : new ArrayList<>();
+        } else {
+            this.amenities = amenities != null ? new ArrayList<>(amenities) : new ArrayList<>();
+        }
     }
 
     // Add a single amenity

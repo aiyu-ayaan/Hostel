@@ -1,7 +1,9 @@
 package com.aiyu.hostel.utils;
 
+import com.aiyu.hostel.core.data.Amenity;
 import com.aiyu.hostel.core.data.FoodItem;
 import com.aiyu.hostel.core.data.Hostel;
+import com.aiyu.hostel.core.data.Priority;
 import com.aiyu.hostel.core.data.Ticket;
 
 import java.util.ArrayList;
@@ -15,15 +17,15 @@ public class DataGenerator {
         List<Hostel> hostels = new ArrayList<>();
 
         // Common amenities sets
-        Set<Hostel.Amenity> basicAmenities = new HashSet<>(Arrays.asList(
-                Hostel.Amenity.WIFI, Hostel.Amenity.LAUNDRY));
+        Set<Amenity> basicAmenities = new HashSet<>(Arrays.asList(
+                Amenity.WIFI, Amenity.LAUNDRY));
 
-        Set<Hostel.Amenity> premiumAmenities = new HashSet<>(Arrays.asList(
-                Hostel.Amenity.WIFI, Hostel.Amenity.AC, Hostel.Amenity.FOOD,
-                Hostel.Amenity.LAUNDRY, Hostel.Amenity.GYM, Hostel.Amenity.STUDY_ROOM));
+        Set<Amenity> premiumAmenities = new HashSet<>(Arrays.asList(
+                Amenity.WIFI, Amenity.AC, Amenity.FOOD,
+                Amenity.LAUNDRY, Amenity.GYM, Amenity.STUDY_ROOM));
 
-        Set<Hostel.Amenity> studentAmenities = new HashSet<>(Arrays.asList(
-                Hostel.Amenity.WIFI, Hostel.Amenity.STUDY_ROOM, Hostel.Amenity.FOOD));
+        Set<Amenity> studentAmenities = new HashSet<>(Arrays.asList(
+                Amenity.WIFI, Amenity.STUDY_ROOM, Amenity.FOOD));
 
         // Common room options
         List<Hostel.RoomOption> sharedRoomOptions = List.of(
@@ -91,7 +93,7 @@ public class DataGenerator {
         hostels.add(new Hostel("H007", "Girls Hostel Mumbai", "Malad West, Mumbai", 4.4f, 167,
                 "₹9,500 onwards",
                 List.of("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPHwS8mLlGd0fMHtJn6a-9lJ7FXQYpGrf3wg&s"),
-                new HashSet<>(Arrays.asList(Hostel.Amenity.WIFI, Hostel.Amenity.FOOD, Hostel.Amenity.LAUNDRY, Hostel.Amenity.GYM)),
+                new HashSet<>(Arrays.asList(Amenity.WIFI, Amenity.FOOD, Amenity.LAUNDRY, Amenity.GYM)),
                 "Safe and secure girls hostel with all facilities", commonPolicies,
                 sharedRoomOptions, 10, "girlshostelmum@gmail.com"));
 
@@ -99,7 +101,7 @@ public class DataGenerator {
                 "₹8,500 onwards",
                 List.of("https://www.google.com/imgres?q=student%20hostel%20images&imgurl=https%3A%2F%2Fcf.bstatic.com%2Fxdata%2Fimages%2Fhotel%2Fmax1024x768%2F586173369.jpg%3Fk%3D46499c7f07cf274cc1cafd7b76f3c129ee46d4169993c46aaf05eb6ab3028e27%26o%3D%26hp%3D1&imgrefurl=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fgb%2Fglasgow-youth-hostel.en-gb.html&docid=0pVXFO_Ge74Q-M&tbnid=yMO4VNde7-5JJM&vet=12ahUKEwjL4Nep9vCMAxXm4TgGHQOoNYI4ChAzegQIZBAA..i&w=1024&h=681&hcb=2&ved=2ahUKEwjL4Nep9vCMAxXm4TgGHQOoNYI4ChAzegQIZBAA",
                         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLT7W9pbRgXciQvVIsQEE1I6HQaOx5Utdn8g&s"),
-                new HashSet<>(Arrays.asList(Hostel.Amenity.WIFI, Hostel.Amenity.LAUNDRY, Hostel.Amenity.PARKING)),
+                new HashSet<>(Arrays.asList(Amenity.WIFI, Amenity.LAUNDRY, Amenity.PARKING)),
                 "Best hostel for travelers and backpackers", commonPolicies,
                 sharedRoomOptions, 25, "book@mumbaibackpackers.com"));
 
@@ -138,7 +140,7 @@ public class DataGenerator {
         hostels.add(new Hostel("H014", "Girls PG Pune", "Viman Nagar, Pune", 4.5f, 176,
                 "₹10,000 onwards",
                 List.of("https://example.com/hostel14/img1.jpg"),
-                new HashSet<>(Arrays.asList(Hostel.Amenity.WIFI, Hostel.Amenity.AC, Hostel.Amenity.FOOD, Hostel.Amenity.LAUNDRY)),
+                new HashSet<>(Arrays.asList(Amenity.WIFI, Amenity.AC, Amenity.FOOD, Amenity.LAUNDRY)),
                 "Exclusive girls hostel with strict security", commonPolicies,
                 privateRoomOptions, 8, "girlspgpune@example.com"));
 
@@ -163,14 +165,14 @@ public class DataGenerator {
         hostels.add(new Hostel("H018", "Foodie's Hostel", "FC Road, Pune", 4.6f, 187,
                 "₹9,000 onwards",
                 List.of("https://example.com/hostel18/img1.jpg"),
-                new HashSet<>(Arrays.asList(Hostel.Amenity.WIFI, Hostel.Amenity.FOOD, Hostel.Amenity.LAUNDRY, Hostel.Amenity.STUDY_ROOM)),
+                new HashSet<>(Arrays.asList(Amenity.WIFI, Amenity.FOOD, Amenity.LAUNDRY, Amenity.STUDY_ROOM)),
                 "Best hostel for food lovers with home-style meals", commonPolicies,
                 sharedRoomOptions, 16, "foodieshostel@example.com"));
 
         hostels.add(new Hostel("H019", "Sports Hostel Pune", "Balewadi, Pune", 4.3f, 112,
                 "₹8,000 onwards",
                 List.of("https://example.com/hostel19/img1.jpg"),
-                new HashSet<>(Arrays.asList(Hostel.Amenity.WIFI, Hostel.Amenity.GYM, Hostel.Amenity.PARKING)),
+                new HashSet<>(Arrays.asList(Amenity.WIFI, Amenity.GYM, Amenity.PARKING)),
                 "Hostel with sports facilities and gym", commonPolicies,
                 sharedRoomOptions, 18, "sports@hostelpune.com"));
 
@@ -216,7 +218,7 @@ public class DataGenerator {
                 "Water leakage in bathroom",
                 "There is water leakage from the shower in my bathroom. It's causing damage to the floor and creating slipping hazards.",
                 "Maintenance",
-                Ticket.Priority.HIGH,
+                Priority.HIGH,
                 "user123",
                 "A-101"
         ));
@@ -226,7 +228,7 @@ public class DataGenerator {
                 "Wi-Fi connectivity issues",
                 "I'm experiencing frequent disconnections and slow internet speed in my room for the past two days.",
                 "Network",
-                Ticket.Priority.MEDIUM,
+                Priority.MEDIUM,
                 "user456",
                 "B-205"
         ));
@@ -236,7 +238,7 @@ public class DataGenerator {
                 "Broken ceiling fan",
                 "The ceiling fan in my room makes loud noise and sometimes stops working completely.",
                 "Electrical",
-                Ticket.Priority.MEDIUM,
+                Priority.MEDIUM,
                 "user789",
                 "C-304"
         ));
@@ -246,7 +248,7 @@ public class DataGenerator {
                 "Need extra blanket",
                 "With the temperature dropping, I would like to request an extra blanket for my bed.",
                 "Housekeeping",
-                Ticket.Priority.LOW,
+                Priority.LOW,
                 "user234",
                 "D-408"
         ));
@@ -256,7 +258,7 @@ public class DataGenerator {
                 "Room lock malfunctioning",
                 "My room lock is not working properly. Sometimes it takes multiple attempts to lock or unlock the door.",
                 "Security",
-                Ticket.Priority.HIGH,
+                Priority.HIGH,
                 "user567",
                 "A-203"
         ));
@@ -266,7 +268,7 @@ public class DataGenerator {
                 "Noisy neighbors after hours",
                 "The residents in room B-302 play loud music after 11 PM, which is disturbing my sleep and studies.",
                 "Complaints",
-                Ticket.Priority.MEDIUM,
+                Priority.MEDIUM,
                 "user890",
                 "B-301"
         ));
@@ -276,7 +278,7 @@ public class DataGenerator {
                 "Air conditioning not cooling",
                 "The AC in my room isn't cooling properly despite being set to the lowest temperature.",
                 "HVAC",
-                Ticket.Priority.MEDIUM,
+                Priority.MEDIUM,
                 "user321",
                 "C-105"
         ));
@@ -286,7 +288,7 @@ public class DataGenerator {
                 "Dining area cleanliness",
                 "The dining area hasn't been cleaned properly for the past two days. Tables are sticky and there's food waste on the floor.",
                 "Cleaning",
-                Ticket.Priority.LOW,
+                Priority.LOW,
                 "user654",
                 "D-202"
         ));
@@ -296,7 +298,7 @@ public class DataGenerator {
                 "Pest control needed",
                 "I've noticed cockroaches in my room and bathroom. Please schedule pest control as soon as possible.",
                 "Maintenance",
-                Ticket.Priority.HIGH,
+                Priority.HIGH,
                 "user987",
                 "A-308"
         ));
@@ -306,7 +308,7 @@ public class DataGenerator {
                 "Room painting request",
                 "The paint in my room is peeling off in several places. Requesting a fresh coat of paint.",
                 "Maintenance",
-                Ticket.Priority.LOW,
+                Priority.LOW,
                 "user432",
                 "B-407"
         ));

@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import com.aiyu.hostel.R;
+import com.aiyu.hostel.core.data.Status;
 import com.aiyu.hostel.core.data.Ticket;
 import com.aiyu.hostel.databinding.FragmentTicketDetailsBinding;
 import com.aiyu.hostel.utils.BaseFragment;
@@ -65,7 +66,7 @@ public class TicketDetailFragment extends BaseFragment {
         });
         binding.btnUpdateStatus.setOnClickListener(v -> {
 
-            final Ticket.Status[] statuses = Ticket.Status.values();
+            final Status[] statuses = Status.values();
             final String[] statusLabels = new String[statuses.length];
             int checkedItem = ticket.getStatus().ordinal();
             // Create a list of status labels

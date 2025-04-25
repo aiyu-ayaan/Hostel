@@ -14,8 +14,10 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.aiyu.hostel.R;
 import com.aiyu.hostel.databinding.ActivityMainBinding;
+import com.aiyu.hostel.utils.InsertItemToDatabase;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import jakarta.inject.Inject;
 
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     private NavController navController;
+
+
+    @Inject
+    InsertItemToDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             throw new IllegalStateException("NavHostFragment not found");
         }
-
+//        database.insertData();
         navController.addOnDestinationChangedListener((navController, navDestination, bundle) -> {
             if (navDestination.getId() == R.id.homeFragment ||
                     navDestination.getId() == R.id.ticketFragment
