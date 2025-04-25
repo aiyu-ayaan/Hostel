@@ -80,10 +80,10 @@ public class FirebaseInteraction {
     }
 
     public void getHostel(BiConsumer<Hostel, Exception> onHostelRetrieved) {
-        if (firebaseAuth.getUid() == null) {
-            onHostelRetrieved.accept(null, new Exception("User not logged in"));
-            return;
-        }
+//        if (firebaseAuth.getUid() == null) {
+//            onHostelRetrieved.accept(null, new Exception("User not logged in"));
+//            return;
+//        }
         firebaseFirestore.collection(HOSTEL_DATABASE_PATH).document(firebaseAuth.getUid()).get().addOnSuccessListener(documentSnapshot -> {
             Hostel hostel = documentSnapshot.toObject(Hostel.class);
             onHostelRetrieved.accept(hostel, null);
@@ -140,10 +140,10 @@ public class FirebaseInteraction {
     }
 
     public void getTicket(BiConsumer<Ticket, Exception> onTicketRetrieved) {
-        if (firebaseAuth.getUid() == null) {
-            onTicketRetrieved.accept(null, new Exception("User not logged in"));
-            return;
-        }
+//        if (firebaseAuth.getUid() == null) {
+//            onTicketRetrieved.accept(null, new Exception("User not logged in"));
+//            return;
+//        }
         firebaseFirestore.collection(TICKET_DATABASE_PATH).document(firebaseAuth.getUid()).get().addOnSuccessListener(documentSnapshot -> {
             Ticket ticket = documentSnapshot.toObject(Ticket.class);
             onTicketRetrieved.accept(ticket, null);
@@ -154,10 +154,10 @@ public class FirebaseInteraction {
 
 
     public void getAllFood(BiConsumer<List<FoodItem>, Exception> onFoodRetrieved) {
-        if (firebaseAuth.getUid() == null) {
-            onFoodRetrieved.accept(null, new Exception("User not logged in"));
-            return;
-        }
+//        if (firebaseAuth.getUid() == null) {
+//            onFoodRetrieved.accept(null, new Exception("User not logged in"));
+//            return;
+//        }
         firebaseFirestore.collection(FOOD_DATABASE_PATH).get().addOnSuccessListener(queryDocumentSnapshots -> {
             List<FoodItem> foodList = queryDocumentSnapshots.toObjects(FoodItem.class);
             onFoodRetrieved.accept(foodList, null);
