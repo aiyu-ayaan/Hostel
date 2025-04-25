@@ -29,7 +29,11 @@
         android:id="@+id/ticketFragment"
         android:name="com.aiyu.hostel.ui.fragments.ticket.TicketFragment"
         android:label="@string/ticket"
-        tools:layout="@layout/fragment_ticket" />
+        tools:layout="@layout/fragment_ticket" >
+        <action
+            android:id="@+id/action_ticketFragment_to_ticketDetailFragment"
+            app:destination="@id/ticketDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/foodFragment"
         android:name="com.aiyu.hostel.ui.fragments.food.FoodFragment"
@@ -67,5 +71,14 @@
         <argument
             android:name="food"
             app:argType="com.aiyu.hostel.core.data.FoodItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/ticketDetailFragment"
+        android:name="com.aiyu.hostel.ui.fragments.ticket.details.TicketDetailFragment"
+        tools:layout="@layout/fragment_ticket_details"
+        android:label="TicketDetailFragment" >
+        <argument
+            android:name="ticket"
+            app:argType="com.aiyu.hostel.core.data.Ticket" />
     </fragment>
 </navigation>

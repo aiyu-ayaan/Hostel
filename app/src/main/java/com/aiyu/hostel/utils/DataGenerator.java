@@ -2,6 +2,7 @@ package com.aiyu.hostel.utils;
 
 import com.aiyu.hostel.core.data.FoodItem;
 import com.aiyu.hostel.core.data.Hostel;
+import com.aiyu.hostel.core.data.Ticket;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -206,4 +207,116 @@ public class DataGenerator {
                 new FoodItem("20", "Tea", "Hot masala chai", 10.0, "", 5, 4.6f, 100, true, "Beverage", true)
         );
     }
+
+    public static List<Ticket> getTicketSampleData() {
+        List<Ticket> ticketList = new ArrayList<>();
+
+        // Ticket 1
+        ticketList.add(new Ticket(
+                "Water leakage in bathroom",
+                "There is water leakage from the shower in my bathroom. It's causing damage to the floor and creating slipping hazards.",
+                "Maintenance",
+                Ticket.Priority.HIGH,
+                "user123",
+                "A-101"
+        ));
+
+        // Ticket 2
+        ticketList.add(new Ticket(
+                "Wi-Fi connectivity issues",
+                "I'm experiencing frequent disconnections and slow internet speed in my room for the past two days.",
+                "Network",
+                Ticket.Priority.MEDIUM,
+                "user456",
+                "B-205"
+        ));
+
+        // Ticket 3
+        ticketList.add(new Ticket(
+                "Broken ceiling fan",
+                "The ceiling fan in my room makes loud noise and sometimes stops working completely.",
+                "Electrical",
+                Ticket.Priority.MEDIUM,
+                "user789",
+                "C-304"
+        ));
+
+        // Ticket 4
+        ticketList.add(new Ticket(
+                "Need extra blanket",
+                "With the temperature dropping, I would like to request an extra blanket for my bed.",
+                "Housekeeping",
+                Ticket.Priority.LOW,
+                "user234",
+                "D-408"
+        ));
+
+        // Ticket 5
+        ticketList.add(new Ticket(
+                "Room lock malfunctioning",
+                "My room lock is not working properly. Sometimes it takes multiple attempts to lock or unlock the door.",
+                "Security",
+                Ticket.Priority.HIGH,
+                "user567",
+                "A-203"
+        ));
+
+        // Ticket 6
+        ticketList.add(new Ticket(
+                "Noisy neighbors after hours",
+                "The residents in room B-302 play loud music after 11 PM, which is disturbing my sleep and studies.",
+                "Complaints",
+                Ticket.Priority.MEDIUM,
+                "user890",
+                "B-301"
+        ));
+
+        // Ticket 7
+        ticketList.add(new Ticket(
+                "Air conditioning not cooling",
+                "The AC in my room isn't cooling properly despite being set to the lowest temperature.",
+                "HVAC",
+                Ticket.Priority.MEDIUM,
+                "user321",
+                "C-105"
+        ));
+
+        // Ticket 8
+        ticketList.add(new Ticket(
+                "Dining area cleanliness",
+                "The dining area hasn't been cleaned properly for the past two days. Tables are sticky and there's food waste on the floor.",
+                "Cleaning",
+                Ticket.Priority.LOW,
+                "user654",
+                "D-202"
+        ));
+
+        // Ticket 9
+        ticketList.add(new Ticket(
+                "Pest control needed",
+                "I've noticed cockroaches in my room and bathroom. Please schedule pest control as soon as possible.",
+                "Maintenance",
+                Ticket.Priority.HIGH,
+                "user987",
+                "A-308"
+        ));
+
+        // Ticket 10
+        ticketList.add(new Ticket(
+                "Room painting request",
+                "The paint in my room is peeling off in several places. Requesting a fresh coat of paint.",
+                "Maintenance",
+                Ticket.Priority.LOW,
+                "user432",
+                "B-407"
+        ));
+
+        // Set unique IDs for each ticket
+        for (int i = 0; i < ticketList.size(); i++) {
+            ticketList.get(i).setId("TKT" + (1000 + i));
+        }
+
+        return ticketList;
+    }
+
 }
