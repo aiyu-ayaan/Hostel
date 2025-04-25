@@ -34,7 +34,7 @@ public class FoodDetailsFragment extends BaseFragment {
             Navigation.findNavController(binding.getRoot()).navigateUp();
         });
 //        enable back button on toolbar
-//        binding.toolbar.setNavigationIcon(android.R.drawable.ic_menu_close_clear_cancel);
+        binding.toolbar.setNavigationIcon(R.drawable.baseline_arrow_back_24);
         binding.tvFoodDetailName.setText(food.getName());
         binding.tvFoodDetailDescription.setText(food.getDescription());
         binding.tvFoodDetailPrice.setText(String.valueOf(food.getPrice()));

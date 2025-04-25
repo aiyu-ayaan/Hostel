@@ -1,4 +1,4 @@
-package com.aiyu.hostel.ui.fragments.details;
+package com.aiyu.hostel.ui.fragments.home.details;
 
 import android.view.LayoutInflater;
 import android.view.View;

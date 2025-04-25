@@ -1,4 +1,4 @@
-package com.aiyu.hostel.ui.fragments.details;
+package com.aiyu.hostel.ui.fragments.home.details;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.aiyu.hostel.R;
@@ -48,6 +49,12 @@ public class DetailFragment extends BaseFragment {
         binding.tvDescription.setText(hostel.getDescription());
         ImagePagerAdapter adapter = new ImagePagerAdapter(requireContext(), hostel.getImageUrls());
         binding.vpHostelImages.setAdapter(adapter);
+
+        binding.toolbar.setNavigationOnClickListener(v -> {
+            Navigation.findNavController(binding.getRoot()).navigateUp();
+        });
+//        enable back button on toolbar
+        binding.toolbar.setNavigationIcon(R.drawable.baseline_arrow_back_24);
 
         // Setup other UI components
         setupAmenities(hostel);

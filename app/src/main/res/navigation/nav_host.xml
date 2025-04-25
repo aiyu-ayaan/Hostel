@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.aiyu.hostel.ui.fragments.details.DetailFragment"
+        android:name="com.aiyu.hostel.ui.fragments.home.details.DetailFragment"
         android:label="DetailFragment"
         tools:layout="@layout/fragment_detail">
         <argument
