@@ -18,7 +18,7 @@
         android:id="@+id/profileFragment"
         android:name="com.aiyu.hostel.ui.fragments.profile.ProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_logInFragment"
             app:destination="@id/logInFragment"
@@ -29,7 +29,7 @@
         android:id="@+id/ticketFragment"
         android:name="com.aiyu.hostel.ui.fragments.ticket.TicketFragment"
         android:label="@string/ticket"
-        tools:layout="@layout/fragment_ticket" >
+        tools:layout="@layout/fragment_ticket">
         <action
             android:id="@+id/action_ticketFragment_to_ticketDetailFragment"
             app:destination="@id/ticketDetailFragment" />
@@ -41,10 +41,13 @@
         android:id="@+id/foodFragment"
         android:name="com.aiyu.hostel.ui.fragments.food.FoodFragment"
         android:label="@string/food"
-        tools:layout="@layout/fragment_food" >
+        tools:layout="@layout/fragment_food">
         <action
             android:id="@+id/action_foodFragment_to_foodDetailsFragment"
             app:destination="@id/foodDetailsFragment" />
+        <action
+            android:id="@+id/action_foodFragment_to_buyFoodFragment"
+            app:destination="@id/buyFoodFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -59,7 +62,7 @@
         android:id="@+id/logInFragment"
         android:name="com.aiyu.hostel.ui.fragments.login.LogInFragment"
         android:label="LogInFragment"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_logInFragment_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -68,25 +71,43 @@
     </fragment>
     <fragment
         android:id="@+id/foodDetailsFragment"
-        tools:layout="@layout/fragment_food_details"
         android:name="com.aiyu.hostel.ui.fragments.food.detail.FoodDetailsFragment"
-        android:label="FoodDetailsFragment" >
+        android:label="FoodDetailsFragment"
+        tools:layout="@layout/fragment_food_details">
         <argument
             android:name="food"
             app:argType="com.aiyu.hostel.core.data.FoodItem" />
+        <action
+            android:id="@+id/action_foodDetailsFragment_to_buyFoodFragment"
+            app:destination="@id/buyFoodFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/ticketDetailFragment"
         android:name="com.aiyu.hostel.ui.fragments.ticket.details.TicketDetailFragment"
-        tools:layout="@layout/fragment_ticket_details"
-        android:label="TicketDetailFragment" >
+        android:label="TicketDetailFragment"
+        tools:layout="@layout/fragment_ticket_details">
         <argument
             android:name="ticket"
             app:argType="com.aiyu.hostel.core.data.Ticket" />
     </fragment>
     <fragment
         android:id="@+id/addTicketFragment"
-        tools:layout="@layout/fragment_add_ticket"
         android:name="com.aiyu.hostel.ui.fragments.ticket.add.AddTicketFragment"
-        android:label="AddTicketFragment" />
+        android:label="AddTicketFragment"
+        tools:layout="@layout/fragment_add_ticket" />
+    <fragment
+        android:id="@+id/buyFoodFragment"
+        android:name="com.aiyu.hostel.ui.fragments.food.buy.BuyFoodFragment"
+        android:label="BuyFoodFragment"
+        tools:layout="@layout/fragment_buy_food">
+        <argument
+            android:name="food"
+            app:argType="com.aiyu.hostel.core.data.FoodItem" />
+        <action
+            android:id="@+id/action_buyFoodFragment_to_foodFragment"
+            app:destination="@id/foodFragment"
+            app:popUpTo="@id/foodFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

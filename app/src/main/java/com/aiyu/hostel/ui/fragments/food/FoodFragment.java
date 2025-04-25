@@ -12,13 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.aiyu.hostel.R;
 import com.aiyu.hostel.core.data.FoodItem;
 import com.aiyu.hostel.core.firebase.FirebaseInteraction;
-import com.aiyu.hostel.databinding.FragmentDetailBinding;
 import com.aiyu.hostel.databinding.FragmentFoodBinding;
 import com.aiyu.hostel.utils.BaseFragment;
-import com.aiyu.hostel.utils.DataGenerator;
-
-import java.util.List;
-import java.util.function.BiConsumer;
 
 import javax.inject.Inject;
 
@@ -43,7 +38,7 @@ public class FoodFragment extends BaseFragment {
         binding.rvFood.setAdapter(adapter);
         binding.rvFood.setLayoutManager(new LinearLayoutManager(requireContext()));
         firebaseInteraction.getAllFood((foodItems, e) -> {
-            if(e != null) {
+            if (e != null) {
                 Toast.makeText(requireContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             } else {
                 if (foodItems != null) {
@@ -51,10 +46,20 @@ public class FoodFragment extends BaseFragment {
                 }
             }
         });
-        adapter.setOnFoodItemClickListener(foodItem -> {
-            var action = FoodFragmentDirections.actionFoodFragmentToFoodDetailsFragment(foodItem);
-            Navigation.findNavController(binding.getRoot())
-                    .navigate(action);
+        adapter.setOnFoodItemClickListener(new FoodAdapter.OnFoodItemClickListener() {
+            @Override
+            public void onFoodItemClick(FoodItem foodItem) {
+                var action = FoodFragmentDirections.actionFoodFragmentToFoodDetailsFragment(foodItem);
+                Navigation.findNavController(binding.getRoot())
+                        .navigate(action);
+            }
+
+            @Override
+            public void onBuyFoodClick(FoodItem foodItem) {
+                var action = FoodFragmentDirections.actionFoodFragmentToBuyFoodFragment(foodItem);
+                Navigation.findNavController(binding.getRoot())
+                        .navigate(action);
+            }
         });
     }
 }

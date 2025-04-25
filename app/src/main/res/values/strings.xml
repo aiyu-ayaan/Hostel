@@ -31,4 +31,6 @@
     <string name="preparation_time">Preparation Time</string>
     <string name="rating">Rating</string>
     <string name="ingredients">Ingredients</string>
+    <string name="create_order">Create Order</string>
+    <string name="no_selected">No Selected</string>
 </resources>

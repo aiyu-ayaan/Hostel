@@ -39,6 +39,8 @@ public class FoodAdapter extends ListAdapter<FoodItem, FoodAdapter.FoodItemHolde
 
     public interface OnFoodItemClickListener {
         void onFoodItemClick(FoodItem foodItem);
+
+        void onBuyFoodClick(FoodItem foodItem);
     }
 
     private OnFoodItemClickListener listener;
@@ -87,6 +89,11 @@ public class FoodAdapter extends ListAdapter<FoodItem, FoodAdapter.FoodItemHolde
             if (listener != null) {
                 binding.getRoot().setOnClickListener(v -> listener.onFoodItemClick(foodItem));
             }
+            binding.btnAddToBuy.setOnClickListener(v -> {
+                if (listener != null) {
+                    listener.onBuyFoodClick(foodItem);
+                }
+            });
         }
     }
 }

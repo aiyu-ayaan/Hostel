@@ -46,7 +46,8 @@ public class FoodDetailsFragment extends BaseFragment {
                 .error(R.drawable.ic_food_base)
                 .into(binding.ivFoodDetailImage);
         binding.btOrder.setOnClickListener(v -> {
-
+            var action = FoodDetailsFragmentDirections.actionFoodDetailsFragmentToBuyFoodFragment(food);
+            Navigation.findNavController(binding.getRoot()).navigate(action);
         });
 
     }

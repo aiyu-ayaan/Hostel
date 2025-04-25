@@ -1,6 +1,7 @@
 package com.aiyu.hostel.core.firebase;
 
 
+import com.aiyu.hostel.core.data.BuyFood;
 import com.aiyu.hostel.core.data.FoodItem;
 import com.aiyu.hostel.core.data.Hostel;
 import com.aiyu.hostel.core.data.Ticket;
@@ -27,6 +28,7 @@ public class FirebaseInteraction {
 
     private static final String FOOD_DATABASE_PATH = "Food";
 
+    private static final String BUY_FOOD_DATABASE_PATH = "BuyFood";
 
     private final FirebaseFirestore firebaseFirestore;
     private final FirebaseAuth firebaseAuth;
@@ -187,6 +189,38 @@ public class FirebaseInteraction {
         ref.delete().addOnSuccessListener(aVoid -> {
             onFoodDeleted.accept(null);
         }).addOnFailureListener(onFoodDeleted::accept);
+    }
+
+
+    public void insertBuyFood(BuyFood buyFood, Consumer<Exception> onBuyFoodAdded) {
+        if (firebaseAuth.getUid() == null) {
+            onBuyFoodAdded.accept(new Exception("User not logged in"));
+            return;
+        }
+        buyFood.setUserId(firebaseAuth.getUid());
+        var ref = firebaseFirestore.collection(USER_DATABASE_PATH)
+                .document(firebaseAuth.getUid())
+                .collection(BUY_FOOD_DATABASE_PATH);
+        ref.document().set(buyFood).addOnSuccessListener(unused -> {
+            onBuyFoodAdded.accept(null);
+        }).addOnFailureListener(onBuyFoodAdded::accept);
+    }
+
+    public void getAllBuyFood(BiConsumer<List<BuyFood>, Exception> onBuyFoodRetrieved) {
+        if (firebaseAuth.getUid() == null) {
+            onBuyFoodRetrieved.accept(null, new Exception("User not logged in"));
+            return;
+        }
+        firebaseFirestore.collection(USER_DATABASE_PATH)
+                .document(firebaseAuth.getUid())
+                .collection(BUY_FOOD_DATABASE_PATH)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    List<BuyFood> buyFoodList = queryDocumentSnapshots.toObjects(BuyFood.class);
+                    onBuyFoodRetrieved.accept(buyFoodList, null);
+                }).addOnFailureListener(e -> {
+                    onBuyFoodRetrieved.accept(null, e);
+                });
     }
 
 
