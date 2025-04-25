@@ -36,6 +36,10 @@ public class TicketFragment extends BaseFragment {
         binding.rvTicket.setAdapter(adapter);
         binding.rvTicket.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvTicket.setHasFixedSize(true);
+        binding.fabAddTicket.setOnClickListener(v -> {
+            Navigation.findNavController(binding.getRoot())
+                    .navigate(TicketFragmentDirections.actionTicketFragmentToAddTicketFragment());
+        });
         adapter.setClickListener(ticket -> {
             Navigation.findNavController(binding.getRoot())
                     .navigate(
@@ -44,7 +48,6 @@ public class TicketFragment extends BaseFragment {
         });
         firebaseInteraction.getAllTicket((tickets, e) -> {
             if (e != null) {
-
                 return;
             }
             if (tickets != null) {

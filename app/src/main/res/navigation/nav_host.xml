@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_ticketFragment_to_ticketDetailFragment"
             app:destination="@id/ticketDetailFragment" />
+        <action
+            android:id="@+id/action_ticketFragment_to_addTicketFragment"
+            app:destination="@id/addTicketFragment" />
     </fragment>
     <fragment
         android:id="@+id/foodFragment"
@@ -81,4 +84,9 @@
             android:name="ticket"
             app:argType="com.aiyu.hostel.core.data.Ticket" />
     </fragment>
+    <fragment
+        android:id="@+id/addTicketFragment"
+        tools:layout="@layout/fragment_add_ticket"
+        android:name="com.aiyu.hostel.ui.fragments.ticket.add.AddTicketFragment"
+        android:label="AddTicketFragment" />
 </navigation>

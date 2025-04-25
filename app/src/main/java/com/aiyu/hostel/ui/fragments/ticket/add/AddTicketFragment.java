@@ -12,8 +12,12 @@ import androidx.navigation.Navigation;
 import com.aiyu.hostel.R;
 import com.aiyu.hostel.core.data.Priority;
 import com.aiyu.hostel.core.data.Ticket;
+import com.aiyu.hostel.core.firebase.FirebaseInteraction;
 import com.aiyu.hostel.databinding.FragmentAddTicketBinding;
 import com.aiyu.hostel.utils.BaseFragment;
+import com.google.firebase.auth.FirebaseAuth;
+
+import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -22,6 +26,12 @@ public class AddTicketFragment extends BaseFragment {
 
     private FragmentAddTicketBinding binding;
     private String[] categories = {"Maintenance", "Housekeeping", "Security", "IT Support", "Other"};
+
+    @Inject
+    FirebaseInteraction firebaseInteraction;
+
+    @Inject
+    FirebaseAuth firebaseAuth;
 
 
     public AddTicketFragment() {
@@ -108,11 +118,21 @@ public class AddTicketFragment extends BaseFragment {
     private void submitTicket(String title, String description, String category,
                               Priority priority, String roomNumber) {
         // Show loading state
+        var userId = firebaseAuth.getCurrentUser().getUid();
         binding.btnSubmitTicket.setEnabled(false);
         binding.btnSubmitTicket.setText("Submitting...");
+        Ticket newTicket = new Ticket(title, description, category, priority, userId, roomNumber);
+        firebaseInteraction.insertTicket(newTicket, e -> {
+            // Hide loading state
+            resetSubmitButton();
 
-        // Get current user ID
-//        TODO: handel insertion
+            if (e != null) {
+                showError("Failed to create ticket: " + e.getMessage());
+                return;
+            }
+
+            showSuccessAndNavigateBack();
+        });
     }
 
     private void resetSubmitButton() {

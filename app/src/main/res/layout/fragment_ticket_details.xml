@@ -17,10 +17,10 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:elevation="4dp"
-            app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:title="Ticket Details" />
 
         <!-- Ticket Status Card -->
@@ -44,34 +44,34 @@
                     android:id="@+id/tv_ticket_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Ticket #TKT1001"
                     android:textColor="@color/gray"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Ticket #TKT1001" />
 
                 <TextView
                     android:id="@+id/tv_ticket_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Created: 25 Apr, 2025"
                     android:textColor="@color/gray"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Created: 25 Apr, 2025" />
 
                 <TextView
                     android:id="@+id/tv_ticket_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    tools:text="Water leakage in bathroom"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_ticket_id" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_ticket_id"
+                    tools:text="Water leakage in bathroom" />
 
                 <TextView
                     android:id="@+id/tv_status_label"
@@ -94,12 +94,12 @@
                     android:paddingTop="2dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="2dp"
-                    tools:text="Pending"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@id/tv_status_label"
                     app:layout_constraintStart_toEndOf="@id/tv_status_label"
-                    app:layout_constraintTop_toTopOf="@id/tv_status_label" />
+                    app:layout_constraintTop_toTopOf="@id/tv_status_label"
+                    tools:text="Pending" />
 
                 <TextView
                     android:id="@+id/tv_priority_label"
@@ -119,12 +119,12 @@
                     android:layout_marginStart="8dp"
                     android:drawableStart="@drawable/ic_priority"
                     android:drawablePadding="4dp"
-                    tools:text="High"
                     android:textColor="@color/red"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@id/tv_priority_label"
                     app:layout_constraintStart_toEndOf="@id/tv_priority_label"
-                    app:layout_constraintTop_toTopOf="@id/tv_priority_label" />
+                    app:layout_constraintTop_toTopOf="@id/tv_priority_label"
+                    tools:text="High" />
 
                 <TextView
                     android:id="@+id/tv_category_label"
@@ -147,12 +147,12 @@
                     android:paddingTop="4dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="4dp"
-                    tools:text="Maintenance"
                     android:textColor="@color/category_text"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/tv_category_label"
                     app:layout_constraintStart_toEndOf="@id/tv_category_label"
-                    app:layout_constraintTop_toTopOf="@id/tv_category_label" />
+                    app:layout_constraintTop_toTopOf="@id/tv_category_label"
+                    tools:text="Maintenance" />
 
                 <TextView
                     android:id="@+id/tv_room_label"
@@ -170,12 +170,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    tools:text="A-101"
                     android:textColor="@color/dark_gray"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@id/tv_room_label"
                     app:layout_constraintStart_toEndOf="@id/tv_room_label"
-                    app:layout_constraintTop_toTopOf="@id/tv_room_label" />
+                    app:layout_constraintTop_toTopOf="@id/tv_room_label"
+                    tools:text="A-101" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -213,9 +213,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    tools:text="There is water leakage from the shower in my bathroom. It's causing damage to the floor and creating slipping hazards."
                     android:textColor="@color/dark_gray"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    tools:text="There is water leakage from the shower in my bathroom. It's causing damage to the floor and creating slipping hazards." />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -261,8 +261,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"
                         android:layout_weight="1"
-                        android:text="Close Ticket"
-                        app:icon="@drawable/baseline_close_24" />
+                        android:text="Close Ticket" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_update_status"
