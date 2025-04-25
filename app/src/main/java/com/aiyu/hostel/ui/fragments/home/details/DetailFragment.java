@@ -1,6 +1,8 @@
 package com.aiyu.hostel.ui.fragments.home.details;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -62,6 +64,66 @@ public class DetailFragment extends BaseFragment {
         setupPolicies(hostel);
         setupAvailability(hostel);
         setupImageSlider(hostel);
+        binding.fabContact.setOnClickListener(v -> {
+            openContact(hostel);
+        });
+        binding.btnBookNow.setOnClickListener(v -> {
+            openContact(hostel);
+        });
+    }
+
+    private void openContact(Hostel hostel) {
+        String contactInfo = hostel.getContactInfo();
+
+        if (contactInfo != null && !contactInfo.isEmpty()) {
+            // Check if it's a phone number (simple validation for demonstration)
+            if (contactInfo.matches("^[+]?[0-9\\s-()]{8,}$")) {
+                // It appears to be a phone number, open dialer
+                openPhoneDialer(contactInfo);
+            }
+            // Check if it's an email
+            else if (contactInfo.matches("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) {
+                // It appears to be an email, open email app
+                openEmailApp(contactInfo);
+            }
+            // Not recognized as phone or email
+            else {
+                Toast.makeText(requireContext(), "Invalid contact information", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(requireContext(), "No contact information available", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void openPhoneDialer(String phoneNumber) {
+        try {
+            // Create the intent with ACTION_DIAL (this doesn't require permission)
+            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+
+            // Format the phone number URI
+            Uri uri = Uri.parse("tel:" + phoneNumber);
+
+            // Set the data for the intent
+            dialIntent.setData(uri);
+
+            // Start the activity
+            startActivity(dialIntent);
+        } catch (Exception e) {
+            // Handle any exceptions (e.g., if there's no dialer app)
+            Toast.makeText(requireContext(), "Unable to open dialer", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    private void openEmailApp(String emailAddress) {
+        try {
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+            emailIntent.setData(Uri.parse("mailto:" + emailAddress));
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Inquiry about Hostel");
+            startActivity(emailIntent);
+        } catch (Exception e) {
+            Toast.makeText(requireContext(), "Unable to open email app", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void setupImageSlider(Hostel hostel) {
