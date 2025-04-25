@@ -61,5 +61,16 @@ public class FoodFragment extends BaseFragment {
                         .navigate(action);
             }
         });
+        binding.toolbar.setOnMenuItemClickListener(item ->
+                {
+                    if (item.getItemId() == R.id.action_history) {
+                        var action = FoodFragmentDirections.actionFoodFragmentToOrderHistoryFragment();
+                        Navigation.findNavController(binding.getRoot())
+                                .navigate(action);
+                        return true;
+                    }
+                    return false;
+                }
+        );
     }
 }

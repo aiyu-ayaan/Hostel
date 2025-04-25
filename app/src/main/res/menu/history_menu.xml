@@ -1,0 +1,9 @@
+<!-- res/menu/topbar_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_history"
+        android:icon="@drawable/baseline_history_24"
+        android:title="@string/end_icon"
+        app:showAsAction="always" />
+</menu>
