@@ -1,5 +1,7 @@
 package com.aiyu.hostel.ui.fragments.profile;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -13,6 +15,10 @@ import com.aiyu.hostel.core.firebase.FirebaseInteraction;
 import com.aiyu.hostel.databinding.FragmentProfileBinding;
 import com.aiyu.hostel.utils.BaseFragment;
 import com.bumptech.glide.Glide;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -50,6 +56,22 @@ public class ProfileFragment extends BaseFragment {
                 Glide.with(requireContext()).load(user.getProfilePic()).into(binding.imageViewProfile);
                 binding.profileName.setText(user.getName());
                 binding.profileEmail.setText(user.getEmail());
+
+                if (user.getCreatedAt() != null) {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM d, yyyy", Locale.getDefault());
+                    String formattedDate = dateFormat.format(new Date(user.getCreatedAt()));
+                    binding.memberSince.setText(formattedDate);
+                } else {
+                    binding.memberSince.setText("Not available");
+                }
+                binding.userId.setText(user.getUid());
+                try {
+                    PackageInfo packageInfo = requireActivity().getPackageManager().getPackageInfo(requireActivity().getPackageName(), 0);
+                    String versionName = packageInfo.versionName;
+                    binding.appVersion.setText(versionName);
+                } catch (PackageManager.NameNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
