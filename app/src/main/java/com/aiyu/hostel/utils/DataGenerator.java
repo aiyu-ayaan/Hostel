@@ -1,5 +1,6 @@
 package com.aiyu.hostel.utils;
 
+import com.aiyu.hostel.core.data.FoodItem;
 import com.aiyu.hostel.core.data.Hostel;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class HostelDataGenerator {
+public class DataGenerator {
     public static List<Hostel> getHostels() {
         List<Hostel> hostels = new ArrayList<>();
 
@@ -179,5 +180,30 @@ public class HostelDataGenerator {
                 privateRoomOptions, 7, "zenstay@pune.com"));
 
         return hostels;
+    }
+
+    public static List<FoodItem> getFoodItems() {
+        return Arrays.asList(
+                new FoodItem("1", "Rajma Chawal", "Steamed rice with kidney beans curry", 50.0, "", 20, 4.2f, 80, false, "Lunch", true),
+                new FoodItem("2", "Aloo Paratha", "Stuffed potato flatbread with butter", 35.0, "", 15, 4.5f, 100, false, "Breakfast", true),
+                new FoodItem("3", "Masala Dosa", "Crispy dosa filled with spicy potato mix", 40.0, "", 20, 4.3f, 90, false, "Breakfast", true),
+                new FoodItem("4", "Sambhar Rice", "Steamed rice with sambhar", 45.0, "", 15, 4.0f, 75, false, "Lunch", true),
+                new FoodItem("5", "Paneer Butter Masala", "Creamy tomato curry with cottage cheese", 70.0, "", 25, 4.6f, 120, true, "Dinner", true),
+                new FoodItem("6", "Chole Bhature", "Spicy chickpeas served with fried bread", 50.0, "", 20, 4.4f, 95, false, "Lunch", true),
+                new FoodItem("7", "Veg Pulao", "Aromatic rice with mixed vegetables", 40.0, "", 15, 4.1f, 60, false, "Lunch", true),
+                new FoodItem("8", "Idli Sambhar", "Steamed rice cakes served with sambhar", 30.0, "", 10, 4.2f, 85, false, "Breakfast", true),
+                new FoodItem("9", "Poha", "Flattened rice cooked with turmeric and peas", 25.0, "", 10, 4.0f, 65, false, "Breakfast", true),
+                new FoodItem("10", "Dal Tadka", "Yellow lentils tempered with spices", 30.0, "", 15, 4.3f, 88, false, "Dinner", true),
+                new FoodItem("11", "Curd Rice", "Curd mixed with rice and tempered spices", 30.0, "", 10, 4.1f, 70, false, "Lunch", true),
+                new FoodItem("12", "Maggi Noodles", "Quick and easy instant noodles", 25.0, "", 7, 3.8f, 110, false, "Snack", true),
+                new FoodItem("13", "Chapati Sabzi", "Whole wheat roti with seasonal vegetable", 35.0, "", 10, 4.0f, 60, false, "Dinner", true),
+                new FoodItem("14", "Bread Pakora", "Fried bread stuffed with potato filling", 20.0, "", 10, 3.9f, 55, false, "Snack", true),
+                new FoodItem("15", "Pav Bhaji", "Spicy mashed vegetables with bread rolls", 45.0, "", 15, 4.4f, 95, true, "Snack", true),
+                new FoodItem("16", "Upma", "Semolina cooked with vegetables", 30.0, "", 10, 4.0f, 58, false, "Breakfast", true),
+                new FoodItem("17", "Kadhi Chawal", "Curd-based curry with steamed rice", 40.0, "", 15, 4.1f, 70, false, "Lunch", true),
+                new FoodItem("18", "Lassi", "Sweet or salty yogurt-based drink", 20.0, "", 5, 4.5f, 90, false, "Beverage", true),
+                new FoodItem("19", "Filter Coffee", "Strong South Indian filter coffee", 15.0, "", 5, 4.7f, 85, false, "Beverage", true),
+                new FoodItem("20", "Tea", "Hot masala chai", 10.0, "", 5, 4.6f, 100, true, "Beverage", true)
+        );
     }
 }

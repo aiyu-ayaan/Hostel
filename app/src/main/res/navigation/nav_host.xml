@@ -34,7 +34,11 @@
         android:id="@+id/foodFragment"
         android:name="com.aiyu.hostel.ui.fragments.food.FoodFragment"
         android:label="@string/food"
-        tools:layout="@layout/fragment_food" />
+        tools:layout="@layout/fragment_food" >
+        <action
+            android:id="@+id/action_foodFragment_to_foodDetailsFragment"
+            app:destination="@id/foodDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.aiyu.hostel.ui.fragments.details.DetailFragment"
@@ -54,5 +58,14 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/nav_host"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        tools:layout="@layout/fragment_food_details"
+        android:name="com.aiyu.hostel.ui.fragments.food.detail.FoodDetailsFragment"
+        android:label="FoodDetailsFragment" >
+        <argument
+            android:name="food"
+            app:argType="com.aiyu.hostel.core.data.FoodItem" />
     </fragment>
 </navigation>

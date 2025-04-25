@@ -21,16 +21,6 @@ public class FoodItem implements Serializable {
     public FoodItem() {
     }
 
-    // Constructor with essential fields
-    public FoodItem(String id, String name, String description, double price, String imageUrl) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.imageUrl = imageUrl;
-        this.isAvailable = true;
-    }
-
     // Full constructor
     public FoodItem(String id, String name, String description, double price,
                     String imageUrl, int preparationTimeMinutes, float rating,

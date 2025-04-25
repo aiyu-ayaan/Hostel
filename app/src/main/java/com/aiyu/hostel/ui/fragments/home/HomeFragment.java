@@ -11,9 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.aiyu.hostel.R;
 import com.aiyu.hostel.core.data.Hostel;
 import com.aiyu.hostel.databinding.FragmentHomeBinding;
-import com.aiyu.hostel.ui.fragments.details.RoomOptionAdapter;
 import com.aiyu.hostel.utils.BaseFragment;
-import com.aiyu.hostel.utils.HostelDataGenerator;
+import com.aiyu.hostel.utils.DataGenerator;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -33,7 +32,7 @@ public class HomeFragment extends BaseFragment {
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.recyclerView.setHasFixedSize(true);
-        adapter.submitList(HostelDataGenerator.getHostels());
+        adapter.submitList(DataGenerator.getHostels());
         adapter.setOnHostelClickListener(new HomeAdapter.OnHostelClickListener() {
             @Override
             public void onHostelClick(Hostel hostel) {
