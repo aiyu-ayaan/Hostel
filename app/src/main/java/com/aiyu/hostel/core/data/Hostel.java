@@ -5,7 +5,6 @@ import android.os.Build;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Hostel implements Serializable {
     private String id;
@@ -36,7 +35,7 @@ public class Hostel implements Serializable {
     // Constructor with all fields
     public Hostel(String id, String name, String location, float rating,
                   int reviewCount, String pricePerMonth, List<String> imageUrls,
-                  Set<Amenity> amenities, String description, List<String> policies,
+                  List<Amenity> amenities, String description, List<String> policies,
                   List<RoomOption> roomOptions, int availableBeds, String contactInfo) {
         this.id = id;
         this.name = name;
@@ -118,12 +117,8 @@ public class Hostel implements Serializable {
         return amenities;
     }
 
-    public void setAmenities(Set<Amenity> amenities) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            this.amenities = amenities != null ? amenities.stream().toList() : new ArrayList<>();
-        } else {
-            this.amenities = amenities != null ? new ArrayList<>(amenities) : new ArrayList<>();
-        }
+    public void setAmenities(List<Amenity> amenities) {
+        this.amenities = amenities != null ? amenities : new ArrayList<>();
     }
 
     // Add a single amenity

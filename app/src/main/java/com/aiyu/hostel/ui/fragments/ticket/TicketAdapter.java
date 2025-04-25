@@ -1,7 +1,6 @@
 package com.aiyu.hostel.ui.fragments.ticket;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,7 @@ import com.aiyu.hostel.R;
 import com.aiyu.hostel.core.data.Ticket;
 import com.aiyu.hostel.databinding.ItemTicketBinding;
 
-public class TicketAdapter extends ListAdapter<Ticket,TicketAdapter.TicketViewHolder> {
+public class TicketAdapter extends ListAdapter<Ticket, TicketAdapter.TicketViewHolder> {
 
     protected TicketAdapter() {
         super(new DiffUtil.ItemCallback<Ticket>() {
@@ -38,6 +37,7 @@ public class TicketAdapter extends ListAdapter<Ticket,TicketAdapter.TicketViewHo
     }
 
     private ClickListener clickListener;
+
     public void setClickListener(ClickListener clickListener) {
         this.clickListener = clickListener;
     }
@@ -61,12 +61,14 @@ public class TicketAdapter extends ListAdapter<Ticket,TicketAdapter.TicketViewHo
 
     class TicketViewHolder extends RecyclerView.ViewHolder {
         private ItemTicketBinding binding;
+
         public TicketViewHolder(ItemTicketBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
+
         public void bind(Ticket ticket) {
-            binding.tvTicketId.setText(ticket.getId());
+            binding.tvTicketId.setText("TK#" + ticket.getId().substring(0,4));
             binding.tvTicketTitle.setText(ticket.getTitle());
             binding.tvTicketDescription.setText(ticket.getDescription());
             binding.tvTicketCategory.setText(ticket.getCategory());

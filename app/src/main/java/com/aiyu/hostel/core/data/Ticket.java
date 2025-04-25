@@ -10,8 +10,6 @@ public class Ticket implements Serializable {
     // Constants for ticket status
 
 
-
-
     private String id;
     private String title;
     private String description;
@@ -81,7 +79,7 @@ public class Ticket implements Serializable {
         return priority;
     }
 
-    public void setPriority(int Priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
@@ -134,8 +132,6 @@ public class Ticket implements Serializable {
     public void setAssignedToStaffId(String assignedToStaffId) {
         this.assignedToStaffId = assignedToStaffId;
     }
-
-
 
 
     // Get color resource ID for status

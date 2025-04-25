@@ -8,23 +8,21 @@ import com.aiyu.hostel.core.data.Ticket;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class DataGenerator {
     public static List<Hostel> getHostels() {
         List<Hostel> hostels = new ArrayList<>();
 
         // Common amenities sets
-        Set<Amenity> basicAmenities = new HashSet<>(Arrays.asList(
+        List<Amenity> basicAmenities = new ArrayList<>(Arrays.asList(
                 Amenity.WIFI, Amenity.LAUNDRY));
 
-        Set<Amenity> premiumAmenities = new HashSet<>(Arrays.asList(
+        List<Amenity> premiumAmenities = new ArrayList<>(Arrays.asList(
                 Amenity.WIFI, Amenity.AC, Amenity.FOOD,
                 Amenity.LAUNDRY, Amenity.GYM, Amenity.STUDY_ROOM));
 
-        Set<Amenity> studentAmenities = new HashSet<>(Arrays.asList(
+        List<Amenity> studentAmenities = new ArrayList<>(Arrays.asList(
                 Amenity.WIFI, Amenity.STUDY_ROOM, Amenity.FOOD));
 
         // Common room options
@@ -93,7 +91,7 @@ public class DataGenerator {
         hostels.add(new Hostel("H007", "Girls Hostel Mumbai", "Malad West, Mumbai", 4.4f, 167,
                 "₹9,500 onwards",
                 List.of("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPHwS8mLlGd0fMHtJn6a-9lJ7FXQYpGrf3wg&s"),
-                new HashSet<>(Arrays.asList(Amenity.WIFI, Amenity.FOOD, Amenity.LAUNDRY, Amenity.GYM)),
+                new ArrayList<>(Arrays.asList(Amenity.WIFI, Amenity.FOOD, Amenity.LAUNDRY, Amenity.GYM)),
                 "Safe and secure girls hostel with all facilities", commonPolicies,
                 sharedRoomOptions, 10, "girlshostelmum@gmail.com"));
 
@@ -101,7 +99,7 @@ public class DataGenerator {
                 "₹8,500 onwards",
                 List.of("https://www.google.com/imgres?q=student%20hostel%20images&imgurl=https%3A%2F%2Fcf.bstatic.com%2Fxdata%2Fimages%2Fhotel%2Fmax1024x768%2F586173369.jpg%3Fk%3D46499c7f07cf274cc1cafd7b76f3c129ee46d4169993c46aaf05eb6ab3028e27%26o%3D%26hp%3D1&imgrefurl=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fgb%2Fglasgow-youth-hostel.en-gb.html&docid=0pVXFO_Ge74Q-M&tbnid=yMO4VNde7-5JJM&vet=12ahUKEwjL4Nep9vCMAxXm4TgGHQOoNYI4ChAzegQIZBAA..i&w=1024&h=681&hcb=2&ved=2ahUKEwjL4Nep9vCMAxXm4TgGHQOoNYI4ChAzegQIZBAA",
                         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLT7W9pbRgXciQvVIsQEE1I6HQaOx5Utdn8g&s"),
-                new HashSet<>(Arrays.asList(Amenity.WIFI, Amenity.LAUNDRY, Amenity.PARKING)),
+                new ArrayList<>(Arrays.asList(Amenity.WIFI, Amenity.LAUNDRY, Amenity.PARKING)),
                 "Best hostel for travelers and backpackers", commonPolicies,
                 sharedRoomOptions, 25, "book@mumbaibackpackers.com"));
 
@@ -140,7 +138,7 @@ public class DataGenerator {
         hostels.add(new Hostel("H014", "Girls PG Pune", "Viman Nagar, Pune", 4.5f, 176,
                 "₹10,000 onwards",
                 List.of("https://example.com/hostel14/img1.jpg"),
-                new HashSet<>(Arrays.asList(Amenity.WIFI, Amenity.AC, Amenity.FOOD, Amenity.LAUNDRY)),
+                new ArrayList<>(Arrays.asList(Amenity.WIFI, Amenity.AC, Amenity.FOOD, Amenity.LAUNDRY)),
                 "Exclusive girls hostel with strict security", commonPolicies,
                 privateRoomOptions, 8, "girlspgpune@example.com"));
 
@@ -165,14 +163,14 @@ public class DataGenerator {
         hostels.add(new Hostel("H018", "Foodie's Hostel", "FC Road, Pune", 4.6f, 187,
                 "₹9,000 onwards",
                 List.of("https://example.com/hostel18/img1.jpg"),
-                new HashSet<>(Arrays.asList(Amenity.WIFI, Amenity.FOOD, Amenity.LAUNDRY, Amenity.STUDY_ROOM)),
+                new ArrayList<>(Arrays.asList(Amenity.WIFI, Amenity.FOOD, Amenity.LAUNDRY, Amenity.STUDY_ROOM)),
                 "Best hostel for food lovers with home-style meals", commonPolicies,
                 sharedRoomOptions, 16, "foodieshostel@example.com"));
 
         hostels.add(new Hostel("H019", "Sports Hostel Pune", "Balewadi, Pune", 4.3f, 112,
                 "₹8,000 onwards",
                 List.of("https://example.com/hostel19/img1.jpg"),
-                new HashSet<>(Arrays.asList(Amenity.WIFI, Amenity.GYM, Amenity.PARKING)),
+                new ArrayList<>(Arrays.asList(Amenity.WIFI, Amenity.GYM, Amenity.PARKING)),
                 "Hostel with sports facilities and gym", commonPolicies,
                 sharedRoomOptions, 18, "sports@hostelpune.com"));
 

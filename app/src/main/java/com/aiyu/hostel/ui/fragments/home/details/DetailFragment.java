@@ -71,8 +71,7 @@ public class DetailFragment extends BaseFragment {
         });
         binding.rvRoomOptions.setAdapter(adapter);
         binding.rvRoomOptions.setVisibility(View.VISIBLE);
-        binding.rvRoomOptions.setLayoutManager(new LinearLayoutManager(requireContext(),
-                LinearLayoutManager.HORIZONTAL, false));
+        binding.rvRoomOptions.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvRoomOptions.setHasFixedSize(true);
     }
 

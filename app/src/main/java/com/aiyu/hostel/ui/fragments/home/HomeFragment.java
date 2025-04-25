@@ -10,9 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.aiyu.hostel.R;
 import com.aiyu.hostel.core.data.Hostel;
+import com.aiyu.hostel.core.firebase.FirebaseInteraction;
 import com.aiyu.hostel.databinding.FragmentHomeBinding;
 import com.aiyu.hostel.utils.BaseFragment;
-import com.aiyu.hostel.utils.DataGenerator;
+
+import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -24,6 +26,9 @@ public class HomeFragment extends BaseFragment {
 
     private FragmentHomeBinding binding;
 
+    @Inject
+    FirebaseInteraction firebaseInteraction;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -32,7 +37,6 @@ public class HomeFragment extends BaseFragment {
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.recyclerView.setHasFixedSize(true);
-        adapter.submitList(DataGenerator.getHostels());
         adapter.setOnHostelClickListener(new HomeAdapter.OnHostelClickListener() {
             @Override
             public void onHostelClick(Hostel hostel) {
@@ -43,10 +47,14 @@ public class HomeFragment extends BaseFragment {
             public void onViewDetailsClick(Hostel hostel) {
                 navigateToDetails(hostel);
             }
-
-            @Override
-            public void onFavoriteClick(Hostel hostel, boolean isFavorite) {
-
+        });
+        firebaseInteraction.getAllHostels((hostels, e) -> {
+            if (e != null) {
+                // Handle error
+                return;
+            }
+            if (hostels != null) {
+                adapter.submitList(hostels);
             }
         });
     }

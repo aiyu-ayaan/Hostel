@@ -79,14 +79,14 @@ public class FirebaseInteraction {
         });
     }
 
-    public void getHostel(BiConsumer<Hostel, Exception> onHostelRetrieved) {
-//        if (firebaseAuth.getUid() == null) {
-//            onHostelRetrieved.accept(null, new Exception("User not logged in"));
-//            return;
-//        }
-        firebaseFirestore.collection(HOSTEL_DATABASE_PATH).document(firebaseAuth.getUid()).get().addOnSuccessListener(documentSnapshot -> {
-            Hostel hostel = documentSnapshot.toObject(Hostel.class);
-            onHostelRetrieved.accept(hostel, null);
+    public void getAllHostels(BiConsumer<List<Hostel>, Exception> onHostelRetrieved) {
+        if (firebaseAuth.getUid() == null) {
+            onHostelRetrieved.accept(null, new Exception("User not logged in"));
+            return;
+        }
+        firebaseFirestore.collection(HOSTEL_DATABASE_PATH).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            List<Hostel> hostelList = queryDocumentSnapshots.toObjects(Hostel.class);
+            onHostelRetrieved.accept(hostelList, null);
         }).addOnFailureListener(e -> {
             onHostelRetrieved.accept(null, e);
         });
@@ -139,14 +139,14 @@ public class FirebaseInteraction {
         }).addOnFailureListener(onTicketDeleted::accept);
     }
 
-    public void getTicket(BiConsumer<Ticket, Exception> onTicketRetrieved) {
-//        if (firebaseAuth.getUid() == null) {
-//            onTicketRetrieved.accept(null, new Exception("User not logged in"));
-//            return;
-//        }
-        firebaseFirestore.collection(TICKET_DATABASE_PATH).document(firebaseAuth.getUid()).get().addOnSuccessListener(documentSnapshot -> {
-            Ticket ticket = documentSnapshot.toObject(Ticket.class);
-            onTicketRetrieved.accept(ticket, null);
+    public void getAllTicket(BiConsumer<List<Ticket>, Exception> onTicketRetrieved) {
+        if (firebaseAuth.getUid() == null) {
+            onTicketRetrieved.accept(null, new Exception("User not logged in"));
+            return;
+        }
+        firebaseFirestore.collection(TICKET_DATABASE_PATH).get().addOnSuccessListener(documentSnapshot -> {
+            List<Ticket> ticketList = documentSnapshot.toObjects(Ticket.class);
+            onTicketRetrieved.accept(ticketList, null);
         }).addOnFailureListener(e -> {
             onTicketRetrieved.accept(null, e);
         });
@@ -154,10 +154,10 @@ public class FirebaseInteraction {
 
 
     public void getAllFood(BiConsumer<List<FoodItem>, Exception> onFoodRetrieved) {
-//        if (firebaseAuth.getUid() == null) {
-//            onFoodRetrieved.accept(null, new Exception("User not logged in"));
-//            return;
-//        }
+        if (firebaseAuth.getUid() == null) {
+            onFoodRetrieved.accept(null, new Exception("User not logged in"));
+            return;
+        }
         firebaseFirestore.collection(FOOD_DATABASE_PATH).get().addOnSuccessListener(queryDocumentSnapshots -> {
             List<FoodItem> foodList = queryDocumentSnapshots.toObjects(FoodItem.class);
             onFoodRetrieved.accept(foodList, null);
@@ -188,7 +188,6 @@ public class FirebaseInteraction {
             onFoodDeleted.accept(null);
         }).addOnFailureListener(onFoodDeleted::accept);
     }
-
 
 
     public void logOut(Consumer<Void> onLoggedOut) {

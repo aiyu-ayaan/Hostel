@@ -25,8 +25,6 @@ public class HomeAdapter extends ListAdapter<Hostel, HomeAdapter.HostelViewHolde
         void onHostelClick(Hostel hostel);
 
         void onViewDetailsClick(Hostel hostel);
-
-        void onFavoriteClick(Hostel hostel, boolean isFavorite);
     }
 
     private static final DiffUtil.ItemCallback<Hostel> DIFF_CALLBACK = new DiffUtil.ItemCallback<Hostel>() {

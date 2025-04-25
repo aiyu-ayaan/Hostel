@@ -1,5 +1,6 @@
 package com.aiyu.hostel.ui.fragments.ticket.details;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,6 @@ import androidx.core.content.ContextCompat;
 
 import com.aiyu.hostel.R;
 import com.aiyu.hostel.core.data.Status;
-import com.aiyu.hostel.core.data.Ticket;
 import com.aiyu.hostel.databinding.FragmentTicketDetailsBinding;
 import com.aiyu.hostel.utils.BaseFragment;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -26,6 +26,7 @@ public class TicketDetailFragment extends BaseFragment {
     private FragmentTicketDetailsBinding binding;
     private TicketDetailFragmentArgs args;
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -33,11 +34,12 @@ public class TicketDetailFragment extends BaseFragment {
         args = TicketDetailFragmentArgs.fromBundle(getArguments());
         var ticket = args.getTicket();
 
-        binding.tvTicketId.setText(ticket.getId());
+        binding.tvTicketId.setText("TK#" + ticket.getId().substring(0,4));
         binding.tvTicketTitle.setText(ticket.getTitle());
         binding.tvTicketDescription.setText(ticket.getDescription());
         binding.tvTicketCategory.setText(ticket.getCategory());
         binding.tvTicketPriority.setText(ticket.getPriority().toString());
+        binding.tvRoomNumber.setText(ticket.getRoomNumber());
         switch (ticket.getPriority()) {
             case LOW:
                 binding.tvTicketPriority.setTextColor(ContextCompat.getColor(requireContext(), R.color.status_inprogress));
